@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebApplication2.Models.Product>
+
+<h2>Ürün Listesi</h2>
+<a href="/Product/Create">Yeni Ürün Ekle</a>
+
+<table>
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Stok</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Stock</td>
+            <td>
+                <a href="/Product/Edit/@item.Id">Düzenle</a> |
+                <a href="/Product/Delete/@item.Id">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
